@@ -191,7 +191,7 @@ void deleteEnd()
 
 // Function to delete from any specified
 // position from the linked list
-void deletePosition()
+int deletePosition()
 {
 	int pos, i = 1;
 	struct node *temp, *position;
@@ -209,12 +209,8 @@ void deletePosition()
 
 		// If the position is the first node
 		if (pos == 1) {
-			deleteFirst(); // im,proved by Jay Ghughriwala on GeeksforGeeks
-			if (start != NULL) {
-				start->prev = NULL;
-			}
-			free(position);
-			return;
+			deleteFirst(); 
+			return 0;
 		}
 
 		// Traverse till position
@@ -230,14 +226,16 @@ void deletePosition()
 
 		// Free memory
 		free(position);
+		
 	}
+	return 0;
 }
 
 // Driver Code
 int main()
 {
 	int choice;
-	while (1) {
+	while (choice!=9) {
 
 		printf("\n\nMenu:\n1 display\n2 For insertion at starting\n3 For insertion at end\n4 For insertion at any position\n5 For deletion of first element\n6 For deletion of last element\n7 For deletion of element at any position\n8 Search\n9 To exit\n");
 		printf("\nEnter Choice :\n");
@@ -269,11 +267,9 @@ int main()
 		    search();
 			break;
         case 9:
-			exit(1);
 			break;
 		default:
 			printf("Incorrect Choice. Try Again \n");
-			continue;
 		}
 	}
 	return 0;
